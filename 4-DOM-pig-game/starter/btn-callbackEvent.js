@@ -18,3 +18,8 @@ function btn() {
 // the EventListener method,
 // will then call that function for us.
 document.querySelector('.btn-roll').addEventListener('click', btn);
+
+
+// The Element.classList is a read-only Property with Methods .remove() and .add()
+document.querySelector('.player-0-panel').classList.remove('active');
+document.querySelector('.player-1-panel').classList.add('active');
