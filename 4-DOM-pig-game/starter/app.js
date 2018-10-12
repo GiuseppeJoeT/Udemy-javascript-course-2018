@@ -75,6 +75,7 @@ document.querySelector('.btn-hold').addEventListener('click', function() {
         // Check if player won the game
         if (scores[activePlayer] >= 20) {
             document.querySelector('#name-' + activePlayer).textContent = 'Winner!';
+            
             document.querySelector('.player-' + activePlayer +  '-panel').classList.remove('active');
             document.querySelector('.player-' + activePlayer +  '-panel').classList.add('winner');
             document.querySelector('.dice').style.display = 'none';
@@ -107,7 +108,7 @@ function nextPlayer() {
 
 // Start a new game
 document.querySelector('.btn-new').addEventListener('click',function() {
-    
+    init();
 });
 
 // init() function
@@ -116,7 +117,7 @@ function init() {
     scores = [0, 0];
     activePlayer = 0;
     roundScore = 0;
-    var gamePlaying = true;
+    gamePlaying = true;
     
     // hide the Dice image
     document.querySelector('.dice').style.display = 'none';
