@@ -1,7 +1,7 @@
 // Lecture: Functions returning functions
+
 // let's create a function that creates 
 // different interview questions for different jobs
-
 function interviewQuestion(job) {
     if (job === 'developer') {
         return function(name) {
@@ -11,6 +11,10 @@ function interviewQuestion(job) {
         return function(name) {
             console.log('what subject do you teach, ' + name + '?');
         }
+    } else if (job === 'designer') {
+            return function(name) {
+                window.alert('Welcome ' + name + '!');
+            };
     } else {
         return function(name) {
             console.log('Hello ' + name + ' , what is your job?');
@@ -30,7 +34,7 @@ var unknownJob = interviewQuestion('Ciccio');
 
 // direct function call, the second argument is for the returning function 
 interviewQuestion('developer')('Luca');
-
+interviewQuestion('designer')('Vito');
 
 var increaser = function(increase) {
     return function(value) {
@@ -41,3 +45,11 @@ var increaser = function(increase) {
 var increase5Times = increaser(5);
 
 
+function ritornaDelTesto(testoInput) {
+    return function(testoOutput) {
+        console.log(testoInput + testoOutput);
+    };
+};
+
+
+ritornaDelTesto('testo input. ')(' testo output.');
