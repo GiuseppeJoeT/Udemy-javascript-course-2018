@@ -42,3 +42,33 @@ johnFriendly('night');
 var emilyFormal = john.presentation.bind(emily, 'formal');
 
 emilyFormal('afternoon');
+
+// Passing functions as arguments
+var years = [1990, 1965, 1935, 2005, 1998]; 
+
+function arrayCalc(arr, funct) {
+    // funct is a CALLBACK function
+    // because it is a function that we pass
+    // into another function that we will then call later.
+    var arrRes = [];
+
+    for (var i = 0; i < arr.length; i++) {
+        arrRes.push(funct(arr[i]));
+    }
+    return arrRes;
+}
+
+function calculateAge(element) {
+    return 2018 - element;
+}
+
+function isFullAge(limit, element) {
+    return element >= limit;
+}
+var ages = arrayCalc(years, calculateAge);
+
+// using the Bind() method
+var isFullAgeInJapan = arrayCalc(ages, isFullAge.bind(this, 20));
+
+console.log(ages);
+console.log(isFullAgeInJapan);
